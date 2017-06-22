@@ -1,0 +1,90 @@
+# Spectra=[FILENAME]
+# Specifies a path to the spectra file to search
+# Supported formats: *.mgf, *.pkl, *.dta, *mzXML 
+# In case of dta type, for multiple MS/MS scans, at least one blank line must be between each MS/MS scan
+Spectra=../consensus/Latosinska_LFQ_consensus.filtered.mgf
+
+# Instrument=[TYPE(ESI-TRAP|ESI-QTOF)]
+# Specifies the type of MS/MS instrument used (or best matched) for peptide fragmentation.
+# According to an instrument type, a different fragmentation model is applied.
+# Default value is ESI-TRAP
+Instrument=ESI-TRAP
+
+# Fasta=[FILENAME]
+# Specifies a path to the database file (*.fasta) to search
+Fasta=swissprot_human_151112.with_contaminants.revCat.fasta
+
+# PeptTolerance=[MASS]
+# Sets a parent mass tolerance in dalton, default value is 3
+PPMTolerance=10
+
+# AutoPMCorrection=[0|1]
+# If this parameter is set to 1 (this requires more search time), 
+# the program will automatically find the optimal parent mass for the input spectrum, regardless of specified PeptTolerance,
+# The default value is 0 (interpreting the spectrum only within the range you specify).
+AutoPMCorrection=0
+
+# FragTolerance=[MASS]
+# Sets a fragment ion mass tolerance in dalton, default value is 0.6
+FragTolerance=0.6
+
+# BlindMode=[0|1|2]
+# Sets the number of modifications per peptide, default value is 2 
+# 0 allows no modification per peptide (very fast),
+# 1 allows one modification per peptide 
+# while 2 allows arbitary modifications per peptide.
+BlindMode=2
+
+# MinModSize=[SIZE]
+# MaxModSize=[SIZE]
+# Sets the minimum/maximum modification size in dalton to consider, default values are -200/+200. 
+MinModSize=
+MaxModSize=
+
+# Enzyme=[NAME]{,[CLEAVAGE/TERMINUS(N|C)]}*
+# Specifies the reagent used for protein digestion
+# Default value (not specified) is 'NONE(for non-enzyme search)'.
+# Enzyme=Trypsin, KR/C
+# Enzyme=LysN, K/N
+# Enzyme=LysC+AspN, K/C, D/N
+Enzyme=Trypsin, KR/C
+
+# enzyme_constraint_min_number_termini =  0(Non tryptic, Run in all case), 1(Semi-Tryptic, Run if more than one term is tryptic site), 2(Full-Tryptic, Run only if two term is tryptic site).
+enzyme_constraint_min_number_termini=2
+
+# MissedCleavage=[NUMBER]
+# Sets the number of allowed missed cleavage sites, default value is 2
+MissedCleavage=2
+
+# ADD=[RESIDUE],[MASS]
+# Specifies the mass of a fixed (static) modification on a residue (e.g. cysteine alkylation, isotope labeling)
+# ADD=NTerm, 0.0000
+# ADD=CTerm, 0.0000
+# ADD=A, 0.0000
+ADD=C, 57.021464
+# ADD=D, 0.0000
+# ADD=E, 0.0000
+# ADD=F, 0.0000
+# ADD=G, 0.0000
+# ADD=H, 0.0000
+# ADD=I, 0.0000
+# ADD=K, 0.0000
+# ADD=L, 0.0000
+# ADD=M, 0.0000
+# ADD=N, 0.0000
+# ADD=P, 0.0000
+# ADD=Q, 0.0000
+# ADD=R, 0.0000
+# ADD=S, 0.0000
+# ADD=T, 0.0000
+# ADD=V, 0.0000
+# ADD=W, 0.0000
+# ADD=Y, 0.0000
+
+# iTRAQSearch=[ON/OFF]
+# Sets the iTRAQ search, default value is OFF
+iTRAQSearch=OFF
+
+# MS/MS High Resoultion
+# Set the MS/MS high resolution search, default value if OFF
+HighResolution=ON
