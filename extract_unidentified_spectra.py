@@ -48,9 +48,10 @@ def main(argv):
     for scannr, spectrum in parseMgf(mgfFile):
       if scannr in unidentifiedScanNrs:
         for line in spectrum:
-          f.write(line)
-          if line.startswith("TITLE"):
+          if line.startswith("SCANS"):
             f.write("SCANS=%d\n" % scannr)
+          else:
+            f.write(line)
 
 ClusterIdentificationRowHeaders = ["consensus_scannr", "num_spectra_in_cluster", "qvalue", "peptide", "proteins"]
 ClusterIdentificationRow = collections.namedtuple("ClusterIdentificationRow", ClusterIdentificationRowHeaders)
