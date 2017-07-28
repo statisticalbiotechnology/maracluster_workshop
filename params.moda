@@ -2,7 +2,7 @@
 # Specifies a path to the spectra file to search
 # Supported formats: *.mgf, *.pkl, *.dta, *mzXML 
 # In case of dta type, for multiple MS/MS scans, at least one blank line must be between each MS/MS scan
-Spectra=../consensus/Latosinska_LFQ_consensus.filtered.mgf
+Spectra=consensus/Latosinska_LFQ_consensus.filtered.mgf
 
 # Instrument=[TYPE(ESI-TRAP|ESI-QTOF)]
 # Specifies the type of MS/MS instrument used (or best matched) for peptide fragmentation.
