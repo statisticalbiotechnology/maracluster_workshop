@@ -5,10 +5,11 @@ import getopt
 import collections
 
 def main(argv):
-  helpMessage = 'extract_unidentified_spectra.py --spectra <mgf_file> --identifications <cluster_identifications> --outfile <output_file> --minsize <min_cluster_size>'
+  helpMessage = 'extract_unidentified_spectra.py --spectra <mgf_file> --identifications <cluster_identifications> --outfile <output_file> --minsize <min_cluster_size> --maxsize <max_cluster_size>'
   minClusterSize = 70
+  maxClusterSize = sys.maxint
   try:
-    opts, args = getopt.getopt(argv, "s:i:o:m:", ["spectra=","identifications=","outfile=","minsize="])
+    opts, args = getopt.getopt(argv, "s:i:o:m:x:", ["spectra=","identifications=","outfile=","minsize=","maxsize="])
   except getopt.GetoptError:
     print(helpMessage)
     sys.exit(2)
@@ -24,6 +25,8 @@ def main(argv):
       outputFile = arg
     elif opt in ("-m", "--minsize"):
       minClusterSize = int(arg)
+    elif opt in ("-x", "--maxsize"):
+      maxClusterSize = int(arg)
   
   if not os.path.isfile(mgfFile):
     print("Could not find mgf spectra file:", mgfFile)
@@ -40,7 +43,7 @@ def main(argv):
      
   unidentifiedScanNrs = list()
   for clusterId in parseclusterIdentificationsFile(clusterIdentificationsFile):
-    if clusterId.qvalue > 0.01 and clusterId.num_spectra_in_cluster >= minClusterSize:
+    if clusterId.qvalue > 0.01 and clusterId.num_spectra_in_cluster >= minClusterSize and  clusterId.num_spectra_in_cluster<=maxClusterSize:
       unidentifiedScanNrs.append(clusterId.consensus_scannr)
   unidentifiedScanNrs = set(unidentifiedScanNrs)
   
