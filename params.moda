@@ -1,6 +1,6 @@
 # Spectra=[FILENAME]
 # Specifies a path to the spectra file to search
-# Supported formats: *.mgf, *.pkl, *.dta, *mzXML 
+# Supported formats: *.mgf, *.pkl, *.dta, *mzXML
 # In case of dta type, for multiple MS/MS scans, at least one blank line must be between each MS/MS scan
 Spectra=consensus/Latosinska_LFQ_consensus.filtered.mgf
 
@@ -12,14 +12,14 @@ Instrument=ESI-TRAP
 
 # Fasta=[FILENAME]
 # Specifies a path to the database file (*.fasta) to search
-Fasta=swissprot_human_151112.with_contaminants.revCat.fasta
+Fasta=scripts/swissprot_human_151112.with_contaminants.revCat.fasta
 
 # PeptTolerance=[MASS]
 # Sets a parent mass tolerance in dalton, default value is 3
 PPMTolerance=10
 
 # AutoPMCorrection=[0|1]
-# If this parameter is set to 1 (this requires more search time), 
+# If this parameter is set to 1 (this requires more search time),
 # the program will automatically find the optimal parent mass for the input spectrum, regardless of specified PeptTolerance,
 # The default value is 0 (interpreting the spectrum only within the range you specify).
 AutoPMCorrection=0
@@ -29,15 +29,15 @@ AutoPMCorrection=0
 FragTolerance=0.6
 
 # BlindMode=[0|1|2]
-# Sets the number of modifications per peptide, default value is 2 
+# Sets the number of modifications per peptide, default value is 2
 # 0 allows no modification per peptide (very fast),
-# 1 allows one modification per peptide 
+# 1 allows one modification per peptide
 # while 2 allows arbitary modifications per peptide.
 BlindMode=2
 
 # MinModSize=[SIZE]
 # MaxModSize=[SIZE]
-# Sets the minimum/maximum modification size in dalton to consider, default values are -200/+200. 
+# Sets the minimum/maximum modification size in dalton to consider, default values are -200/+200.
 MinModSize=
 MaxModSize=
 
